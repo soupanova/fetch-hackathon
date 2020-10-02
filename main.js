@@ -5,17 +5,18 @@ async function trivia(){
     const response = await fetch("https://opentdb.com/api.php?amount=10");
     const data = await response.json();
     h2.innerText = data.results[0].question;
-    // return data.results[0].question;
+    return data.results[0].correct_answer;
 }
 let button = document.querySelector("button");
 button.addEventListener("click", trivia);
 
-const allData = trivia();
-let questionsArray = []; 
+ 
+const correctAnswer = trivia();
+console.log(correctAnswer)
 
-questionsArray.push(allData);
+// let questionsArray = []; 
 
-
+// questionsArray.push(allData);
 
 
 // let question = trivia(data.results[0-9].question)
