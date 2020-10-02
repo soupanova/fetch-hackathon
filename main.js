@@ -1,25 +1,44 @@
 // fetching data and changing the question! 
 let h2 = document.querySelector("h2");
-
+answer = ""; 
 async function trivia(){
     const response = await fetch("https://opentdb.com/api.php?amount=10");
     const data = await response.json();
     h2.innerText = data.results[0].question;
-    return data.results[0].correct_answer;
+    // incorrectH3.innerText = data.results[0].incorrect_answers
+    // correctH3.innerText = data.results[0].correct_answers
+    answer =  data.results[0].correct_answer;
+    console.log(answer)
 }
-const correctAnswer = trivia();
+ trivia();
 
+let questionButton = document.querySelector("#nextQ");
+questionButton.addEventListener("click", trivia);
 
-let button = document.querySelector("button");
-button.addEventListener("click", trivia);
+let submitButton = document.querySelector("#submitA")
+let userInput = document.querySelector("input");
 
+submitButton.addEventListener("click",correctAnswer)
 
-let input = document.querySelector("input");
+let userScore = document.querySelector("#userScore");
+let score = 0 
+function correctAnswer( ){
+    if (answer === userInput.value){ 
+        score++;
+       userScore.innerText = `Your Score is: ${score}`;
+    } 
+}
+
+// button.addEventListener("click", userAnswer);
 
 let p = document.querySelector("#timer")
 
+let incorrectH3 = document.querySelector("#incorrectAnswers");
+let correctH3 = document.querySelector("#correctAnswers");
 
-let count = 3;
+
+//Coundown timer
+let count = 60;
 
 timer = setInterval(function() {
     p.innerText = count--;
