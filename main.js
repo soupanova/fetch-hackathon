@@ -1,6 +1,10 @@
 // fetching data and changing the question! 
 let h2 = document.querySelector("h2");
 answer = ""; 
+
+let incorrectH3 = document.querySelector("#incorrectAnswers");
+let correctH3 = document.querySelector("#correctAnswers");
+
 async function trivia(){
     const response = await fetch("https://opentdb.com/api.php?amount=10");
     const data = await response.json();
@@ -10,12 +14,20 @@ async function trivia(){
     answer =  data.results[0].correct_answer;
     console.log(answer)
 }
- trivia();
 
 let questionButton = document.querySelector("#nextQ");
-questionButton.addEventListener("click", trivia);
+function startGame() {
+    trivia();
+    questionButton.innerText = "Next Question";
+}
+questionButton.addEventListener("click", startGame);
+startTimer()
 
-let submitButton = document.querySelector("#submitA")
+// if ()
+
+
+
+let submitButton = document.querySelector("#submitA");
 let userInput = document.querySelector("input");
 
 submitButton.addEventListener("click",correctAnswer)
@@ -29,15 +41,11 @@ function correctAnswer( ){
     } 
 }
 
-// button.addEventListener("click", userAnswer);
-
-let p = document.querySelector("#timer")
-
-let incorrectH3 = document.querySelector("#incorrectAnswers");
-let correctH3 = document.querySelector("#correctAnswers");
 
 
 //Coundown timer
+function startTimer() {
+let p = document.querySelector("#timer")
 let count = 60;
 
 timer = setInterval(function() {
@@ -47,6 +55,7 @@ timer = setInterval(function() {
         return p.innerText = "Time's up"
     } 
 }, 1000);
+}
 
 
 
