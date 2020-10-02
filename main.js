@@ -1,24 +1,42 @@
-// fetching data
+// fetching data and changing the question! 
 let h2 = document.querySelector("h2");
-// h2.innerText = data.results[0].question;
 
 async function trivia(){
     const response = await fetch("https://opentdb.com/api.php?amount=10");
     const data = await response.json();
-    console.log(data);
-    return data;
+    h2.innerText = data.results[0].question;
+    // return data.results[0].question;
 }
-const questions = trivia();
+let button = document.querySelector("button");
+button.addEventListener("click", trivia);
 
-questions.
+const allData = trivia();
+let questionsArray = []; 
+
+questionsArray.push(allData);
+
+
+
+
+// let question = trivia(data.results[0-9].question)
+
+// let correctAnswer = data.result[0-9].correct_answer
+
+let userinput = document.querySelector("input");
+
+// function correctAnswer(str){
+//     if (str === "anything"){
+//         return "Well done - thats correct"
+//     };
+// }
+
 
 // 10 question, once the fucntion pulls this data. 
 // we need to store the object/array which contains our questions
 // in storing this object we need to run the array so everytime the player clicks a button they can move on to the next question.
 
 
-let button = document.querySelector("button");
-button.addEventListener("click", trivia)
+
 // let result = trivia()
 // console.log(result)
 
