@@ -1,0 +1,39 @@
+Trivia game --> Answer the question.
+
+1. Display 10 questions on to the website.
+Using data.question
+Text input for the user to answer the questions 
+Display correct answer if user inputs incorrect one.
+Use prompt to display multiple choice options.....
+
+// HTML 
+// Image
+// h1  Welcome to Kunmi and Khang's World of Trivia
+// <h2> question
+// <input> user's answer
+// <button> Next question </button>
+
+// JS Changing the question....
+// select the h2 tag using doc.querySelec
+// h2.innerText = 
+// {data.question} is the object from the API
+// store the original data so we can have that somewhere treat it as an object. 
+// interact with the event listerner 
+// button.addeventlistner("click", )
+
+// JS Result Wether the answer is correct of incorrect
+// Function(){
+    if statement ( user input = data.correctanswer){ 
+    }
+}
+
+2. Create a countdown timer shown on the website 
+Period of 5 minutes for the game 
+
+** try and SetTimeout for 30s per question
+
+3. Score board 
+Showing correct and incorrect answers 
+
+
+Finishing touches:CSS FlexBlox??
