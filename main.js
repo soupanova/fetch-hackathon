@@ -5,11 +5,12 @@ let h2 = document.querySelector("h2");
 async function trivia(){
     const response = await fetch("https://opentdb.com/api.php?amount=10");
     const data = await response.json();
-    console.log(data.results.question);
-    return data.results.question;
+    console.log(data);
+    return data;
 }
+const questions = trivia();
 
-let questions = trivia();
+questions.
 
 // 10 question, once the fucntion pulls this data. 
 // we need to store the object/array which contains our questions
